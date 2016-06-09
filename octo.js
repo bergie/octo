@@ -6,7 +6,7 @@
 
 (function() {
 
-  if(typeof superagent === 'undefined' && require) {
+  if(typeof superagent === 'undefined') {
     superagent = require('superagent');
     if (typeof process !== 'undefined' && process.execPath && process.execPath.indexOf('node') !== -1) {
       btoa = require('btoa');
