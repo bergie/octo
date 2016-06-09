@@ -1,1 +1,1 @@
-module.exports = require("./octo")
+module.exports = require("./octo.js")
