@@ -50,6 +50,11 @@
           if (pager._handledError) {
             return;
           }
+          if (res.error) {
+            pager._handledError = res;
+            pager.trigger('error', res);
+            return;
+          }
           limit = ~~res.header['x-ratelimit-limit']
           remaining = ~~res.header['x-ratelimit-remaining']
 
