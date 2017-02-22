@@ -36,12 +36,14 @@
     function pager(method, path, params) {
       var page    = 1,
           perpage = 30,
+          headers = {},
           hasnext = false,
           hasprev = false,
-          headers = {
-            'User-Agent': 'Octo.js'
-          },
           callbacks = {}
+
+      if (typeof process !== 'undefined' && process.execPath && process.execPath.match(/node/)) {
+        headers['User-Agent'] = 'Octo.js';
+      }
 
       var request = function() {
         var req = superagent[method](api.host() + path)
